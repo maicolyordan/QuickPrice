@@ -657,7 +657,7 @@ img {
         // Si la versión de sesión ha cambiado o los datos no coinciden, cerrar sesión automáticamente
         if (!savedUser || !isAuthenticated || savedVersion !== currentVersion || !validUsers[savedUser] || validUsers[savedUser] !== savedPass) {
             localStorage.clear(); // Borra la sesión automáticamente
-            window.location.href = "DXN.html"; // Redirige al login
+            window.location.href = "iniciar_sesion.html"; // Redirige al login
         } else {
             document.getElementById("user-name").innerText = savedUser;
         }

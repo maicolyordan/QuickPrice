@@ -650,7 +650,7 @@ img {
     const username = localStorage.getItem("username");
 
     if (!isAuthenticated) {
-        window.location.href = "login.html"; // Redirigir al login si no hay sesión activa
+        window.location.href = "iniciar_sesion.html"; // Redirigir al login si no hay sesión activa
     } else {
         document.getElementById("user-name").innerText = username; // Mostrar el nombre del usuario
     }

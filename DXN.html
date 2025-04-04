@@ -646,21 +646,21 @@ img {
     
     
     // Verificamos si el usuario está autenticado
-    function login() {
-        const username = document.getElementById("username").value.trim(); // Elimina espacios
-        const password = document.getElementById("password").value.trim(); // Elimina espacios
+    const validUsers = { "Yordan": "777", "Santos": "000" };
+        const currentVersion = "1.0"; // Asegúrate de que coincida con index.html
 
-        const users = { "Yordan": "777", "Santos": "000" };
+        const savedUser = (localStorage.getItem("username") || "").trim();
+        const savedPass = (localStorage.getItem("password") || "").trim();
+        const savedVersion = localStorage.getItem("sessionVersion");
+        const isAuthenticated = localStorage.getItem("isAuthenticated");
 
-        if (users[username] && users[username] === password) {
-            localStorage.setItem("isAuthenticated", "true");
-            localStorage.setItem("username", username);
-            localStorage.setItem("password", password);
-            window.location.href = "iniciar_sesion.html"; 
+        // Si la versión de sesión ha cambiado o los datos no coinciden, cerrar sesión automáticamente
+        if (!savedUser || !isAuthenticated || savedVersion !== currentVersion || !validUsers[savedUser] || validUsers[savedUser] !== savedPass) {
+            localStorage.clear(); // Borra la sesión automáticamente
+            window.location.href = "DXN.html"; // Redirige al login
         } else {
-            document.getElementById("error-message").style.display = "block";
+            document.getElementById("user-name").innerText = savedUser;
         }
-    }
     </script>
 </body>
 </html>

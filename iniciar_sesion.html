@@ -27,22 +27,24 @@
 </div>
 
 <script>
-    function login() {
-        const username = document.getElementById("username").value.trim(); // Elimina espacios
-        const password = document.getElementById("password").value.trim(); // Elimina espacios
+        function login() {
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
 
-        const users = { "Maicol": "123", "Yordan": "777", "Santos": "000" };
+            const users = { "Yordan": "777", "Santos": "000" };
+            const currentVersion = "1.0"; // Cambia este número cuando actualices los usuarios
 
-        if (users[username] && users[username] === password) {
-            localStorage.setItem("isAuthenticated", "true");
-            localStorage.setItem("username", username);
-            localStorage.setItem("password", password);
-            window.location.href = "DXN.html"; 
-        } else {
-            document.getElementById("error-message").style.display = "block";
+            if (users[username] && users[username] === password) {
+                localStorage.setItem("isAuthenticated", "true");
+                localStorage.setItem("username", username);
+                localStorage.setItem("password", password);
+                localStorage.setItem("sessionVersion", currentVersion); // Guarda la versión
+                window.location.href = "DXN.html"; 
+            } else {
+                document.getElementById("error-message").style.display = "block";
+            }
         }
-    }
-</script>
+    </script>
 
 </body>
 </html>

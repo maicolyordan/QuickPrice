@@ -646,19 +646,20 @@ img {
     
     
     // Verificamos si el usuario está autenticado
-    const isAuthenticated = localStorage.getItem("isAuthenticated");
-    const username = localStorage.getItem("username");
+    function login() {
+        const username = document.getElementById("username").value.trim(); // Elimina espacios
+        const password = document.getElementById("password").value.trim(); // Elimina espacios
 
-    if (!isAuthenticated) {
-        window.location.href = "iniciar_sesion.html"; // Redirigir al login si no hay sesión activa
-    } else {
-        document.getElementById("user-name").innerText = username; // Mostrar el nombre del usuario
-    }
+        const users = { "Maicol": "123", "Yordan": "777", "Santos": "000" };
 
-    function logout() {
-        localStorage.removeItem("isAuthenticated");
-        localStorage.removeItem("username");
-        window.location.href = "iniciar_sesion.html"; // Redirigir al login
+        if (users[username] && users[username] === password) {
+            localStorage.setItem("isAuthenticated", "true");
+            localStorage.setItem("username", username);
+            localStorage.setItem("password", password);
+            window.location.href = "home.html"; 
+        } else {
+            document.getElementById("error-message").style.display = "block";
+        }
     }
     </script>
 </body>

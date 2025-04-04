@@ -1,0 +1,117 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #141414;
+            color: white;
+        }
+
+        .login-container {
+            background: #474747;
+            padding: 40px;
+            border-radius: 8px;
+            width: 360px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.2); /* Borde blanco suave */
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #e50914;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 12px 0;
+            border-radius: 6px;
+            border: 1px solid #333;
+            background-color: #333;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #ffffff;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #e50914;
+            color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #b81d22;
+        }
+
+        .error {
+            color: rgb(255, 66, 66);
+            font-size: 14px;
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Iniciar sesión</h2>
+    <input type="text" id="username" placeholder="Nombre de usuario" required>
+    <input type="password" id="password" placeholder="Contraseña" required>
+    <button onclick="login()">Ingresar</button>
+    <p id="error-message" class="error">Nombre o contraseña incorrectos</p>
+</div>
+
+<script>
+    function login() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        // Lista de usuarios registrados
+        const users = {
+            "Maicol": "123",
+            "Yordan": "777",
+            "Santos": "000"
+        };
+
+        if (users[username] && users[username] === password) {
+            // Guardamos la sesión en localStorage
+            localStorage.setItem("isAuthenticated", "true");
+            localStorage.setItem("username", username);
+            window.location.href = "home.html"; // Redirigir a la página principal
+        } else {
+            document.getElementById("error-message").style.display = "block";
+        }
+    }
+</script>
+
+</body>
+</html>
+

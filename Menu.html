@@ -1,8 +1,45 @@
-<!-- menu.html -->
-<div class="navbar">
-    <button class="nav-button" id="homeButton">Inihhjcio</button>
-    <button class="nav-button" id="searchButton">Buscar</button>
-    <button class="nav-button" id="profileButton">Perfil</button>
-    <button class="nav-button" id="seriesButton">Series</button>
-    <button class="nav-button" id="settingsButton">Configuración</button>
-</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botones en Fila Vertical</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .botones {
+            display: flex;
+            flex-direction: column; /* Esto hace que los botones se apilen verticalmente */
+            align-items: center;
+            gap: 10px;
+        }
+        .botones button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .botones button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Botones en Fila Vertical</h1>
+    <div class="botones">
+        <button>Botón 1</button>
+        <button>Botón 2</button>
+        <button>Botón 3</button>
+        <button>Botón 4</button>
+    </div>
+
+</body>
+</html>
